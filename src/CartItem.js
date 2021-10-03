@@ -1,34 +1,25 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            price: 25999,
-            title: 'Mobile',
-            qty: 1,
-            img: ''
-        };
-    }
+    
+    // decreaseQuantity = () => {
+    //     if(this.state.qty === 0) {
+    //         return;
+    //     }
 
-    decreaseQuantity = () => {
-        if(this.state.qty === 0) {
-            return;
-        }
+    //     this.setState({
+    //         qty : this.state.qty - 1
+    //     });
+    // }
 
-        this.setState({
-            qty : this.state.qty - 1
-        });
-    }
-
-    increaseQuantity = () => {
-        // console.log('working');
-        this.setState((prevState)=> {
-            return {
-                qty: prevState.qty + 1
-            }
-        });
-    }
+    // increaseQuantity = () => {
+    //     // console.log('working');
+    //     this.setState((prevState)=> {
+    //         return {
+    //             qty: prevState.qty + 1
+    //         }
+    //     });
+    // }
 
     render() {
         const {price, title, qty} = this.props.product;
@@ -48,14 +39,18 @@ class CartItem extends React.Component {
                             className="action-icons" 
                             alt = "add" 
                             src = "https://cdn-icons-png.flaticon.com/512/1828/1828919.png"
-                            onClick = {this.increaseQuantity}
+                            onClick = { () => {
+                                this.props.onIncreaseQuantity(this.props.product);
+                            }}
                         >
                         </img>
                         <img 
                             className="action-icons" 
                             alt = "minus" 
                             src = "https://cdn-icons-png.flaticon.com/512/1828/1828899.png"
-                            onClick = {this.decreaseQuantity}
+                            onClick = {() => {
+                                this.props.onDecreaseQuantity(this.props.product);
+                            }}
                         >
                         </img>
                         <img className="action-icons" alt = "delete" src = "https://cdn-icons-png.flaticon.com/512/3096/3096687.png"></img>
