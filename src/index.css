@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: black;
+  color: white; */
 }
 
 .cart-item {
@@ -24,5 +26,10 @@ body {
 }
 .action-icons:hover {
   cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
 }
 
